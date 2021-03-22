@@ -1,4 +1,4 @@
-package week2.homework;
+package week2.exercise;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

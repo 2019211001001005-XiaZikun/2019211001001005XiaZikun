@@ -12,16 +12,40 @@
         <servlet-name>fool</servlet-name>
         <url-pattern>/hello</url-pattern><!-- url must start with /-->
     </servlet-mapping>
+    <!-- url must start with /-->
+    <!-- x= 5,a= x so we can say a=5
+    so /hello==com.XiaZikun.week2.demo.HelloWorldservlet-->
     <servlet>
         <servlet-name>week2.ex</servlet-name><!-- give any name -->
-        <servlet-class>week2.homework.exercise</servlet-class><!--package +name of servlet class -->
+        <servlet-class>week2.exercise.exercise</servlet-class><!--package +name of servlet class -->
     </servlet>
+    <servlet>
+        <servlet-name>LifeCircleServlet</servlet-name>
+        <servlet-class>com.XiaZikun.week3.demo.LifeCircleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.XiaZikun.week3.demo.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>week3.ex</servlet-name><!-- give any name -->
+        <servlet-class>week3.exercise.exercise</servlet-class><!--package +name of servlet class -->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern><!-- write this url in action /-->
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>week2.ex</servlet-name>
         <url-pattern>/hi</url-pattern><!-- url must start with /-->
     </servlet-mapping>
-    <!-- url must start with /-->
-    <!-- x= 5,a= x so we can say a=5
-    so /hello==com.XiaZikun.week2.demo.HelloWorldservlet-->
-
+    <servlet-mapping>
+        <servlet-name>LifeCircleServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>week3.ex</servlet-name>
+        <url-pattern>/jdbc</url-pattern><!-- write this url in action /-->
+    </servlet-mapping>
+    <!--/life ==LifeCycleServlet== com.XiaZikun.week3.demo.LifeCircleServlet -->
 </web-app>
