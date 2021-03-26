@@ -23,18 +23,31 @@
         <servlet-name>LifeCircleServlet</servlet-name>
         <servlet-class>com.XiaZikun.week3.demo.LifeCircleServlet</servlet-class>
     </servlet>
-    <servlet>
+    <!-- <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.XiaZikun.week3.demo.RegisterServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>week3.ex</servlet-name><!-- give any name -->
-        <servlet-class>week3.exercise.exercise</servlet-class><!--package +name of servlet class -->
+    </servlet> -->
+    <!-- <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>week4.exercise.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>XiaZikun</param-value>
+        </init-param>
+        <init-param>
+            <param-name>studentid</param-name>
+            <param-value>2019211001001005</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping> -->
+
+    <!-- <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern><!-- write this url in action /-->
-    </servlet-mapping>
+        <url-pattern>/register</url-pattern>  // write this url in action
+    </servlet-mapping> -->
     <servlet-mapping>
         <servlet-name>week2.ex</servlet-name>
         <url-pattern>/hi</url-pattern><!-- url must start with /-->
@@ -43,9 +56,21 @@
         <servlet-name>LifeCircleServlet</servlet-name>
         <url-pattern>/life</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>week3.ex</servlet-name>
-        <url-pattern>/jdbc</url-pattern><!-- write this url in action /-->
-    </servlet-mapping>
     <!--/life ==LifeCycleServlet== com.XiaZikun.week3.demo.LifeCircleServlet -->
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost:1433;DatabaseName=userdb</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>123456</param-value>
+    </context-param>
 </web-app>
