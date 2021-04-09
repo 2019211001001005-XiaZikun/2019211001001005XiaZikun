@@ -12,7 +12,7 @@ public class LoginServlet extends HttpServlet {
     Connection con=null;
     @Override
     public void init() throws ServletException{
-        String driver=getServletConfig().getServletContext().getInitParameter("driver");
+        /*String driver=getServletConfig().getServletContext().getInitParameter("driver");
         String url=getServletConfig().getServletContext().getInitParameter("url");
         String username=getServletConfig().getServletContext().getInitParameter("username");
         String password=getServletConfig().getServletContext().getInitParameter("password");
@@ -22,12 +22,14 @@ public class LoginServlet extends HttpServlet {
             con= DriverManager.getConnection(url,username,password);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        //only one one
+        con = (Connection) getServletContext().getAttribute("con");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);//all doPost
     }
 
     @Override
@@ -44,10 +46,22 @@ public class LoginServlet extends HttpServlet {
             pstmt.setString(2,password);
             ResultSet rs=pstmt.executeQuery();
             if(rs.next()){
-                out.println("Login Success!!!");
-                out.println("Welcome "+username);
+                //out.println("Login Success!!!");
+                //out.println("Welcome "+username);
+                //get from rs and set into request attribute
+                //forward to userinfo.jsp
+                request.setAttribute("id",rs.getInt("id"));
+                request.setAttribute("username",rs.getString("username"));
+                request.setAttribute("password",rs.getString("password"));
+                request.setAttribute("email",rs.getString("email"));
+                request.setAttribute("sex",rs.getString("sex"));
+                request.setAttribute("birthday",rs.getString("birthday"));
+                //forward to userinfo.jsp
+                request.getRequestDispatcher("userinfo.jsp").forward(request,response);
             }else{
-                out.println("Username or Password Error!!!");
+                //out.println("Username or Password Error!!!");
+                request.setAttribute("message","Username or Password Error!!!");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -5,18 +5,13 @@
   Time: 8:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<a href="index.jsp">go to ecjtu</a> <!-- method is GET-->
-<form method="get"> <!-- what is method when wo use form?--><!--its GET , why? default is GET,form data is added in the URL,you can see-->
-    <!-- its better to use POST in form,data in not added in the URL-->
-    Name :<input type="text" name="name"><br/>
-    ID :<input type="text" name="id"><br/>
-    <input type="submit" value="Send data to server"/>
-</form>
-</body>
-</html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<%@include file="header.jsp"%>
+<h1 style="font-family: 'Arial Black';font-size: 30px"><%= "Welcome to my homepage"%>
+</h1>
+<br/>
+<br/>
+<h1>This is My Jsp Page!</h1>
+
+<%@include file="footer.jsp"%>
