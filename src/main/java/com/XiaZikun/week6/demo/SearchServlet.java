@@ -16,7 +16,7 @@ public class SearchServlet extends HttpServlet {
         System.out.println(search);
         System.out.println(txt);
 
-        if (txt == null){
+        if (txt == ""){
             response.sendRedirect("index.jsp");
         }else{
 
