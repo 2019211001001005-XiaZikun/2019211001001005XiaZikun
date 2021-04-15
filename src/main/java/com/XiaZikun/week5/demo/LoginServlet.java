@@ -1,5 +1,8 @@
 package com.XiaZikun.week5.demo;
 
+import com.XiaZikun.dao.UserDao;
+import com.XiaZikun.model.User;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -29,7 +32,9 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);//all doPost
+        //doPost(request,response);//all doPost
+        //when user click login menu - request is get
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 
     @Override
@@ -40,7 +45,27 @@ public class LoginServlet extends HttpServlet {
         String username =request.getParameter("username");
         String password =request.getParameter("password");
 
+        //now move jdbc code in dao - MVC design
+        //write mvc code
+        //user model and dao
+        UserDao userDao=new UserDao();
         try {
+            User user= userDao.findByUsernamePassword(con,username,password);
+            if (user!=null){
+                //valid
+                //set user into request
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userinfo.jsp").forward(request,response);
+            }else{
+                //invalid
+                request.setAttribute("message","Username or Password Error!!!");
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        //forward - JSP
+        /*try {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1,username);
             pstmt.setString(2,password);
@@ -65,6 +90,6 @@ public class LoginServlet extends HttpServlet {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        }*/
     }
 }
