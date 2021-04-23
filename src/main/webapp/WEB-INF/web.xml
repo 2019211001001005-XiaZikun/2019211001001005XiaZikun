@@ -27,6 +27,14 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>com.XiaZikun.controller.HomeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.XiaZikun.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>com.XiaZikun.controller.UpdateUserServlet</servlet-class>
+    </servlet>
     <welcome-file-list>
         <welcome-file>home</welcome-file><!-- when you run app -first request send to home... HomeServlet-->
     </welcome-file-list>

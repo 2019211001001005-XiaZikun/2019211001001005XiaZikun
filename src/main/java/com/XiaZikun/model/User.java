@@ -67,11 +67,11 @@ public class User {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public java.sql.Date getBirthday() {
+        return (java.sql.Date) birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(java.sql.Date birthday) {
         this.birthday = birthday;
     }
 

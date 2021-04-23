@@ -59,14 +59,13 @@ doPost(request,response);
         String birthday =request.getParameter("birthday");
         PreparedStatement pstmt= null; //调用javaSQL包的PreparedStatement来存储待运行的SQL语句
         try {
-            String sql="insert into usertable(id,username,password,email,sex,birthday)  values(?,?,?,?,?,?) ";
+            String sql="insert into usertable(id,username,password,email,sex,birthday)  values(?,?,?,?,?) ";
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1,1);
-            pstmt.setString(2,username);
-            pstmt.setString(3,password);
-            pstmt.setString(4,email);
-            pstmt.setString(5,sex);
-            pstmt.setString(6,birthday);
+            pstmt.setString(1,username);
+            pstmt.setString(2,password);
+            pstmt.setString(3,email);
+            pstmt.setString(4,sex);
+            pstmt.setString(5,birthday);
             pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

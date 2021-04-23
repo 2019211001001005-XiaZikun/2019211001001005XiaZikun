@@ -14,15 +14,14 @@ public class UserDao implements IUserDao{
     @Override
     public boolean saveUser(Connection con, User user) throws SQLException {
         //insert ..into usertable ---write code yourself
-        String sql="insert into usertable(id,username,password,email,sex,birthday)  values(?,?,?,?,?,?) ";
+        String sql="insert into usertable(id,username,password,email,sex,birthday)  values(?,?,?,?,?) ";
         PreparedStatement st=con.prepareStatement(sql);
         st = con.prepareStatement(sql);
-        st.setInt(1,user.getId());
-        st.setString(2, user.getUsername());
-        st.setString(3,user.getPassword());
-        st.setString(4,user.getEmail());
-        st.setString(5,user.getSex());
-        st.setDate(6, (java.sql.Date) user.getBirthday());
+        st.setString(1, user.getUsername());
+        st.setString(2,user.getPassword());
+        st.setString(3,user.getEmail());
+        st.setString(4,user.getSex());
+        st.setDate(5, (java.sql.Date) user.getBirthday());
         st.executeUpdate();
         if (st.executeUpdate() > 0) {
             return true;
@@ -46,15 +45,20 @@ public class UserDao implements IUserDao{
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
         //update ....where id=?
+
+        //TODO 5.1 - write update sql where id=?
+        //TODO 5.2 - create prepared statement
+        //TODO 5.3 - executeUpdate()
+        //TODO 5.4 - return int
         String sql="update usertable set username=?,password=?,email=?,sex=?,birthday=? where id=?";
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1,user.getUsername());
         st.setString(2,user.getPassword());
         st.setString(3,user.getEmail());
         st.setString(4,user.getSex());
-        st.setDate(5, (java.sql.Date) user.getBirthday());
+        st.setDate(5, user.getBirthday());
         st.setInt(6,user.getId());
-        st.executeQuery();
+        st.executeUpdate();
         if (st.executeUpdate() > 0) {
             return 1;
         }
