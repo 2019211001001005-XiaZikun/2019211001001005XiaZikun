@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.XiaZikun.model.User" %><%--
   Created by IntelliJ IDEA.
   User: 86176
   Date: 2021/4/23
@@ -17,7 +17,7 @@
     <!-- its better to use POST in form,data in not added in the URL-->
     <input TYPE="hidden" name="id" value="<%=u.getId()%>">
     UserName <input type="text" name="Username" value="<%=u.getUsername()%>" style="width: 200px;height: 25px;margin-top: 2px"><br/>
-    PassWord <input type="password" name="password" value="<%=u.getPassword()%> style="width: 200px;height: 25px;margin-top: 5px"><br/>
+    PassWord <input type="password" name="password" value="<%=u.getPassword()%>" style="width: 200px;height: 25px;margin-top: 5px"><br/>
     Email <input type="text" name="Email" value="<%=u.getEmail()%>" style="width: 200px;height: 25px;margin-top: 5px"><br/>
     Gender <input type="radio" name="sex" value="male" <%="male".equals(u.getSex())?"checked":""%>>Male
     <input type="radio" name="sex" value="female" <%= "female".equals(u.getSex())?"checked" :""%>>Female<br/>

@@ -12,7 +12,7 @@ public class LogoutServlet extends HttpServlet {
         //when user click logout -- method is get
         //kill session
         //false means get existing session
-        request.getSession(false).invalidate();//kill session right now
+
         request.setAttribute("message","You have successfully logged out!");
         request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }

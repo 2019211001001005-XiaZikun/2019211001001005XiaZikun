@@ -5,33 +5,27 @@
   Time: 11:42
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <h1>User Info</h1>
 <%
-    //get user from session
-    User u=(User) session.getAttribute("user");
+    User user=(User) request.getAttribute("user");
 %>
 <table>
     <tr>
-        <td>ID:</td><td><%=u.getId()%></td>
+        <td>Username:</td><td><%=user.getUsername()%></td>
     </tr>
     <tr>
-        <td>Username:</td><td><%=u.getUsername()%></td>
+        <td>Password:</td><td><%=user.getPassword()%></td>
     </tr>
     <tr>
-        <td>Password:</td><td><%=u.getPassword()%></td>
+        <td>Email:</td><td><%=user.getEmail()%></td>
     </tr>
     <tr>
-        <td>Email:</td><td><%=u.getEmail()%></td>
+        <td>Sex:</td><td><%=user.getSex()%></td>
     </tr>
     <tr>
-        <td>Sex:</td><td><%=u.getSex()%></td>
-    </tr>
-    <tr>
-        <td>Birthday:</td><td><%=u.getBirthday()%></td><br>
-    </tr>
-    <tr>
-        <td><a href="updateUser">Update User</a></td>
+        <td>Birthday:</td><td><%=user.getBirthday()%></td><br>
     </tr>
 </table>
 <%@include file="footer.jsp"%>
