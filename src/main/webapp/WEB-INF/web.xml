@@ -23,6 +23,10 @@
         <servlet-name>LifeCircleServlet</servlet-name>
         <servlet-class>com.XiaZikun.week3.demo.LifeCircleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>com.XiaZikun.controller.ProductListServlet</servlet-class>
+    </servlet>
     <welcome-file-list>
         <welcome-file>home</welcome-file><!-- when you run app -first request send to home... HomeServlet-->
     </welcome-file-list>
