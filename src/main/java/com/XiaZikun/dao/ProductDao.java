@@ -3,10 +3,7 @@ package com.XiaZikun.dao;
 import com.XiaZikun.model.Product;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,12 +102,6 @@ public class ProductDao implements  IProductDao{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return productList;
     }
@@ -135,12 +126,6 @@ public class ProductDao implements  IProductDao{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return productList;
     }
@@ -164,12 +149,6 @@ public class ProductDao implements  IProductDao{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return productList;
     }
@@ -194,12 +173,6 @@ public class ProductDao implements  IProductDao{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return productList;
     }
@@ -224,13 +197,19 @@ public class ProductDao implements  IProductDao{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return productList;
+    }
+    public byte[] getPictureById(Integer productId,Connection con)throws SQLException{
+        byte[] imgByte=null;
+        String sql="select picture from product where productId=?";
+        PreparedStatement pt=con.prepareStatement(sql);
+        pt.setInt(1,productId);
+        ResultSet rs=pt.executeQuery();
+        while(rs.next()){
+            Blob blob= rs.getBlob("Picture");
+            imgByte=blob.getBytes(1,(int) blob.length());
+        }
+        return imgByte;
     }
 }
