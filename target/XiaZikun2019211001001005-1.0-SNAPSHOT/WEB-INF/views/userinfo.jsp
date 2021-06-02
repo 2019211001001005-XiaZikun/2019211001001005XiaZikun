@@ -10,10 +10,12 @@
 <%
     //get user from session
     User u=(User) session.getAttribute("user");
+    if(u.getUsername().equals("admin")){
 %>
 <h1 style="font-family: 'Arial Black';font-size: 30px"><%= "Welcome Administrator"%></h1>
 <br> <a href="userlist.jsp">User List</a>
 <br> <a href="#">Product List</a>
+<%}else{%>
 <h1>User Info</h1>
 <table>
     <tr>
@@ -38,4 +40,5 @@
         <td><a href="updateUser">Update User</a></td>
     </tr>
 </table>
+<%}//end%>
 <%@include file="footer.jsp"%>
