@@ -63,7 +63,7 @@ public class UpdateUserServlet extends HttpServlet {
             session.setMaxInactiveInterval(60*60);
             session.setAttribute("user",u);
             if(i==1){
-                request.getRequestDispatcher("WEB-INF/views/userinfo.jsp").forward(request,response);
+                request.getRequestDispatcher("accountDetails").forward(request,response);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
