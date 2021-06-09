@@ -23,10 +23,6 @@
         <servlet-name>LifeCircleServlet</servlet-name>
         <servlet-class>com.XiaZikun.week3.demo.LifeCircleServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ProductListServlet</servlet-name>
-        <servlet-class>com.XiaZikun.controller.ProductListServlet</servlet-class>
-    </servlet>
     <welcome-file-list>
         <welcome-file>home</welcome-file><!-- when you run app -first request send to home... HomeServlet-->
     </welcome-file-list>
@@ -58,7 +54,31 @@
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/hello</url-pattern> <!--url of HelloServlet - this filter is only for HelloServlet-->
     </filter-mapping>
-    <!-- 3ed - one -->
+    <filter>
+        <filter-name>YourNameFilter</filter-name>
+        <filter-class>com.XiaZikun.lab2.YourNameFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>YourNameFilter</filter-name>
+        <url-pattern>/lab2/validate.jsp</url-pattern> <!--url of HelloServlet - this filter is only for HelloServlet-->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>YourNameFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern> <!--url of HelloServlet - this filter is only for HelloServlet-->
+    </filter-mapping>
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.XiaZikun.lab2.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/lab2/validate.jsp</url-pattern> <!--url of HelloServlet - this filter is only for HelloServlet-->
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern> <!--url of HelloServlet - this filter is only for HelloServlet-->
+    </filter-mapping>
+    <!-- 3rd - one -->
     <!-- <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.XiaZikun.week3.demo.RegisterServlet</servlet-class>
