@@ -27,7 +27,7 @@ public class AdminOrderListServlet extends HttpServlet {
         OrderDao orderDao=new OrderDao();
         List<Order> orderList=orderDao.findAll(con);
         request.setAttribute("orderList",orderList);
-        String path="WEB-INF/views/admin/orderList.jsp";
+        String path="/WEB-INF/views/admin/orderList.jsp";
         request.getRequestDispatcher(path).forward(request,response);
     }
 
